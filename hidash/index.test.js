@@ -1,16 +1,17 @@
 const assert = require("assert");
 const { forEach, map } = require("./index");
 
-const test = (desc, fn) => {
-  console.log("----", desc);
-  try {
-    fn();
-  } catch (err) {
-    console.log(err.message);
-  }
-};
+// No longer is needed because of mocha's it methods
+// const test = (desc, fn) => {
+//   console.log("----", desc);
+//   try {
+//     fn();
+//   } catch (err) {
+//     console.log(err.message);
+//   }
+// };
 
-test("The forEach function test", () => {
+it("The forEach function test", () => {
   let sum = 0;
   forEach([1, 2, 3], value => {
     sum += value;
@@ -24,10 +25,10 @@ test("The forEach function test", () => {
   //   }
 });
 
-test("The map function test", () => {
+it("The map function test", () => {
   const result = map([1, 2, 3], value => value * 2);
 
-  assert.deepStrictEqual(result, [1, 1, 1]);
+  assert.deepStrictEqual(result, [2, 4, 6]);
 
   // No longer needed because of assert.deepStrictEqual method
   //   assert.strictEqual(result[0], 2);
