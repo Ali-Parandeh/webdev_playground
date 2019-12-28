@@ -8,3 +8,5 @@ forEach([1, 2, 3], value => {
 if (sum !== 6) {
   throw new Error("Expected the summing array to equal 6");
 }
+
+console.log("Tests passed!!!");
