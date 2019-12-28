@@ -6,5 +6,3 @@ module.exports = {
     }
   }
 };
-
-forEach([1, 2, 3], value => console.log(value));
