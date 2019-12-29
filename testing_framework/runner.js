@@ -49,11 +49,11 @@ class Runner {
 
     // NOTE: global variable is available to all files in the node environment. When a function is not defined, node
     // will look at the properties attached to the global variable next before throwing an error.
-    global.it = (desc, fn) => {
+    global.it = async (desc, fn) => {
       beforeEaches.forEach(func => func());
       // NOTE: Using try catch statement to prevent the test suite from stopping if a test fails
       try {
-        fn();
+        await fn();
         console.log(chalk.green(`\tOK - ${desc}`));
       } catch (err) {
         // NOTE 1: .replace method accepts a regular express to find all matched patterns and replace them with second arg string
