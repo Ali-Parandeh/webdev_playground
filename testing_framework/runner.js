@@ -50,10 +50,13 @@ class Runner {
       // NOTE: Using try catch statement to prevent the test suite from stopping if a test fails
       try {
         fn();
-        console.log(chalk.green(`OK - ${desc}`));
+        console.log(chalk.green(`\tOK - ${desc}`));
       } catch (err) {
-        console.log(chalk.red(`X - ${desc}`));
-        console.log(chalk.red("\t", err.message));
+        // NOTE 1: .replace method accepts a regular express to find all matched patterns and replace them with second arg string
+        // NOTE 2:  /\n/g regular expression means globally (within the whole err.message) find every new line character
+        const message = err.message.replace(/\n/g, "\n\t\t");
+        console.log(chalk.red(`\tX - ${desc}`));
+        console.log(chalk.red("\t", message));
       }
     };
 
