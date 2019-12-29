@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
+const ignoreDirs = ["node_modules", "ignore"];
 
 class Runner {
   constructor() {
@@ -21,7 +22,7 @@ class Runner {
       if (stats.isFile() && file.includes(".test.js")) {
         this.testFiles.push({ name: filepath, shortName: file });
         // testFiles === [{name: '/Users/.../autcomplete.test.js'}]
-      } else if (stats.isDirectory()) {
+      } else if (stats.isDirectory() && !ignoreDirs.includes(file)) {
         const childFiles = await fs.promises.readdir(filepath);
         // childFiles === ['autocomplete.test.js', 'test.html']
 
