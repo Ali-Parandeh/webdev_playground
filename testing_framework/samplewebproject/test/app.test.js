@@ -15,5 +15,5 @@ it("shows a success message with a valid email", async () => {
     .dispatchEvent(new dom.window.Event("submit"));
 
   const h1 = dom.window.document.querySelector("h1");
-  console.log("Contents of h1", h1.innerHTML);
+  assert.strictEqual(h1.innerHTML, "Looks good!");
 });
