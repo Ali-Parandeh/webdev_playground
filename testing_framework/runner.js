@@ -28,9 +28,17 @@ class Runner {
         // files === ['index.js', 'utils.js', 'test/autocomplete.test.js', 'test/test.html']
 
         // NOTE: ... means expand the childFiles array and then push the items to the files array
-        // files.push(childFiles) === ['index.js', 'utils.js', ['autocomplete.test.js', 'test.html']]\
+        // files.push(childFiles) === ['index.js', 'utils.js', ['autocomplete.test.js', 'test.html']]
         // files.push(...childFiles) === ['index.js', 'utils.js', 'autocomplete.test.js', 'test.html']
       }
+    }
+  }
+
+  // Run all test files
+  async runTests() {
+    for (let file of this.testFiles) {
+      // NOTE: When we require a filepath, node finds the file, loads all the code in it and executes them.
+      require(file.name);
     }
   }
 }
