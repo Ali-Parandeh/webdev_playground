@@ -46,6 +46,7 @@ class Runner {
     // will look at the properties attached to the global variable next before throwing an error.
     global.it = (desc, fn) => {
       beforeEaches.forEach(func => func());
+      // NOTE: Using try catch statement to prevent the test suite from stopping if a test fails
       try {
         fn();
         console.log(`OK - ${desc}`);
@@ -56,7 +57,8 @@ class Runner {
     };
 
     for (let file of this.testFiles) {
-      // NOTE: When we require a filepath, node finds the file, loads all the code in it and executes them.
+      // NOTE 1: When we require a filepath, node finds the file, loads all the code in it and executes them.
+      // NOTE 2: Adding a try catch statement to prevent a dirty file from stopping the test suite.
       try {
         require(file.name);
       } catch (err) {
