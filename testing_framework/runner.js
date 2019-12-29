@@ -36,13 +36,14 @@ class Runner {
 
   // Run all test files
   async runTests() {
-    // NOTE: global variable is available to all files in the node environment. When a function is not defined, node
-    // will look at the properties attached to the global variable next before throwing an error.
+    // NOTE: BeforeEaches array is used to pass the beforeEach functions to 'it' function for execution before 'it' tests are run.
     const beforeEaches = [];
     global.beforeEach = fn => {
       beforeEaches.push(fn);
     };
 
+    // NOTE: global variable is available to all files in the node environment. When a function is not defined, node
+    // will look at the properties attached to the global variable next before throwing an error.
     global.it = (desc, fn) => {
       beforeEaches.forEach(func => func());
       fn();
