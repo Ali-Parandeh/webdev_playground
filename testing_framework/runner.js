@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
+const render = require("./render");
 const ignoreDirs = ["node_modules", "ignore"];
 
 class Runner {
@@ -38,6 +39,8 @@ class Runner {
 
   // Run all test files
   async runTests() {
+    global.render = render;
+
     // NOTE: BeforeEaches array is used to pass the beforeEach functions to 'it' function for execution before 'it' tests are run.
     const beforeEaches = [];
     global.beforeEach = fn => {
