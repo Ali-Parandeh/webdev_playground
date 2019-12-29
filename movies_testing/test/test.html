@@ -16,6 +16,9 @@
     <script class="mocha-init">
       mocha.setup("bdd");
       mocha.checkLeaks();
+      // Importing chai's expect and should APIs for the sake of variety. Both have the same functions.
+      const expect = chai.expect;
+      chai.should();
     </script>
     <script src="../utils.js"></script>
     <script src="../autocomplete.js"></script>
