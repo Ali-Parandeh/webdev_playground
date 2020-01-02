@@ -6,3 +6,39 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* Basic reset to ensure all browsers will render the page similarly */
+* {
+    margin: 0;
+    padding: 0;
+    /* Borders and paddings to no longer be added to total width and height that are specified for a box  */
+    box-sizing: border-box; 
+}
+
+/* Font specifications always go into body which will be inherited by all child elements */
+body {
+    font-family: "Lato", sans-serif;
+    font-size: 16px;
+    /* 1.7 times bigger */
+    line-height: 1.7;
+    color: #777;
+    /* Adds 30px whitespace around the whole page */
+    padding: 30px;
+}
+
+.header {
+    /* Set size of the element to 95% of the viewport height */
+    height: 95vh;
+    /* The first arg passed in will stay on top */
+    background-image: linear-gradient(
+        to right bottom, 
+        #7ed56fc5, 
+        #28b485c2) ,
+        url('../img/hero.jpg');
+    /* Size of background image to fit the element it is inside of */
+    background-size: cover;
+    /* Ensure the image is fixed to the top of the page so an resize eats away from the bottom */
+    background-position: top;
+    /* Specifies a clipping path where everything inside the path is visible and everything outside is clipped out. */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
