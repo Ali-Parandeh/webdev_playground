@@ -9,151 +9,202 @@ Dark green: #28b485
 
 /* Basic reset to ensure all browsers will render the page similarly */
 * {
-    margin: 0;
-    padding: 0;
-    /* Borders and paddings to no longer be added to total width and height that are specified for a box  */
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* Borders and paddings to no longer be added to total width and height that are specified for a box  */
+  box-sizing: border-box;
 }
 
 /* Font specifications always go into body which will be inherited by all child elements */
 body {
-    font-family: "Lato", sans-serif;
-    font-size: 16px;
-    /* 1.7 times bigger */
-    line-height: 1.7;
-    color: #777;
-    /* Adds 30px whitespace around the whole page */
-    padding: 30px;
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  /* 1.7 times bigger */
+  line-height: 1.7;
+  color: #777;
+  /* Adds 30px whitespace around the whole page */
+  padding: 30px;
 }
 
 .header {
-    /* Set size of the element to 95% of the viewport height */
-    height: 95vh;
-    /* The first arg passed in will stay on top */
-    background-image: linear-gradient(to right bottom,
-            #7ed56fc5,
-            #28b485c2),
-        url('../img/hero.jpg');
-    /* Size of background image to fit the element it is inside of */
-    background-size: cover;
-    /* Ensure the image is fixed to the top of the page so a resizing will eat away from the bottom */
-    background-position: top;
-    position: relative;
-    /* Specifies a clipping path where everything inside the path is visible and everything outside is clipped out. */
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* Set size of the element to 95% of the viewport height */
+  height: 95vh;
+  /* The first arg passed in will stay on top */
+  background-image: linear-gradient(to right bottom, #7ed56fc5, #28b485c2),
+    url("../img/hero.jpg");
+  /* Size of background image to fit the element it is inside of */
+  background-size: cover;
+  /* Ensure the image is fixed to the top of the page so a resizing will eat away from the bottom */
+  background-position: top;
+  /* Position all children elements in relative to this element if they have absolute positioning */
+  position: relative;
+  /* Specifies a clipping path where everything inside the path is visible and everything outside is clipped out. */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
 .logo-box {
-    position: absolute;
-    /* Reference position from which we count these pixel is the parent element which has a position set to relative */
-    top: 40px;
-    left: 40px;
+  position: absolute;
+  /* Reference position from which we count these pixel is the parent element which has a position set to relative */
+  top: 40px;
+  left: 40px;
 }
 
 .logo {
-    /* Size of image. Aspect ratio is kept so width is automatically calculated */
-    height: 35px;
+  /* Size of image. Aspect ratio is kept so width is automatically calculated */
+  height: 35px;
 }
 
 .text-box {
-    position: absolute;
-    /* Position the element 50% of the width and height of the parent element to right and down */
-    top: 40%;
-    left: 50%;
-    /* Move the element 50% of its size to left and up */
-    transform: translate(-50%, -50%);
-    /* Sets the children textual elements to center*/
-    text-align: center;
+  position: absolute;
+  /* Position the element 50% of the width and height of the parent element to right and down */
+  top: 40%;
+  left: 50%;
+  /* Move the element 50% of its size to left and up */
+  transform: translate(-50%, -50%);
+  /* Sets the children textual elements to center*/
+  text-align: center;
 }
 
 .heading-primary {
-    color: #fff;
-    text-transform: uppercase;
-    backface-visibility: hidden;
-    margin-bottom: 60px;
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 60px;
 }
 
 .heading-primary-main {
-    /* Creates line-break before and after the element */
-    display: block;
-    font-size: 60px;
-    font-weight: 400;
-    letter-spacing: 35px;
+  /* Creates line-break before and after the element */
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
 
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
 }
 
 .heading-primary-sub {
-    display: block;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 17.4px;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
 
-    animation: moveInRight 1s ease-out;
+  animation: moveInRight 1s ease-out;
 }
 
 /* Defining animation - To optimise performance only animate two properties - opacity and/or transform */
 @keyframes moveInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-100px);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
 
-    80% {
-        transform: translateX(10px);
-    }
+  80% {
+    transform: translateX(10px);
+  }
 
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
 
 @keyframes moveInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(100px);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
 
-    80% {
-        transform: translateX(-10px);
-    }
+  80% {
+    transform: translateX(-10px);
+  }
 
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
 
 /* :x is a psuedo class - defines the state of the btn element - here both visited and visited link */
 .btn:link,
 .btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    /* Padding of 15px for top and bottom. Padding of 40px for left and right */
-    padding: 15px 40px;
-    /* btn element is already an inline element but need it to give it some space from other elements */
-    display: inline-block;
-    margin: 0 auto;
-    border-radius: 100px;
-    transition: all .2s;
+  text-transform: uppercase;
+  text-decoration: none;
+  /* Padding of 15px for top and bottom. Padding of 40px for left and right */
+  padding: 15px 40px;
+  /* btn element is already an inline element but need it to give it some space from other elements */
+  display: inline-block;
+  margin: 0 auto;
+  border-radius: 100px;
+  transition: all 0.2s;
+  /* Position all children in relative to this parent if they have absolute positioning */
+  position: relative;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
-    /* box-shadow: x y blur colour */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+  transform: translateY(-3px);
+  /* box-shadow: x y blur colour */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Clicking a button sets it in the active state */
 .btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
-    background-color: #fff;
-    color: #777;
+  background-color: #fff;
+  color: #777;
+}
+
+/* Psuedo element added after the button which is animated */
+.btn::after {
+  /* Need to specify content, otherwise psuedo element will not appear on page */
+  content: "";
+  /* btn is an inline-block as is its psuedo element */
+  display: inline-block;
+  /* The psuedo element is btn element's child. Resizing to cover the full parent. */
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  /* Move the psuedo element behind the current btn element and position it
+  so that it is aligned perfectly behind the btn element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  /* Animate psuedo elements by applying and removing (transitioning) their properties within 0.4 seconds */
+  transition: all 0.4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+/* Change styling properties of the psuedo element when btn element is hovered */
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+  /* animation: animation-name animation-duration animation-timing-function animation-delay */
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  /* Apply the properties of moveInBottom keyframe at 0% before animation starts */
+  animation-fill-mode: backwards;
 }
