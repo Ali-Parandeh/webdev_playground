@@ -12,7 +12,7 @@ Dark green: #28b485
     margin: 0;
     padding: 0;
     /* Borders and paddings to no longer be added to total width and height that are specified for a box  */
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 /* Font specifications always go into body which will be inherited by all child elements */
@@ -30,15 +30,56 @@ body {
     /* Set size of the element to 95% of the viewport height */
     height: 95vh;
     /* The first arg passed in will stay on top */
-    background-image: linear-gradient(
-        to right bottom, 
-        #7ed56fc5, 
-        #28b485c2) ,
+    background-image: linear-gradient(to right bottom,
+            #7ed56fc5,
+            #28b485c2),
         url('../img/hero.jpg');
     /* Size of background image to fit the element it is inside of */
     background-size: cover;
     /* Ensure the image is fixed to the top of the page so a resizing will eat away from the bottom */
     background-position: top;
+    position: relative;
     /* Specifies a clipping path where everything inside the path is visible and everything outside is clipped out. */
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo-box {
+    position: absolute;
+    /* Reference position from which we count these pixel is the parent element which has a position set to relative */
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    /* Size of image. Aspect ratio is kept so width is automatically calculated */
+    height: 35px;
+}
+
+.text-box {
+    position: absolute;
+    /* Position the element 50% of the width and height of the parent element to right and down */
+    top: 40%;
+    left: 50%;
+    /* Move the element 50% of its size to left and up */
+    transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.heading-primary-main {
+    /* Creates line-break before and after the element */
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
 }
