@@ -62,13 +62,15 @@ body {
     left: 50%;
     /* Move the element 50% of its size to left and up */
     transform: translate(-50%, -50%);
+    /* Sets the children textual elements to center*/
+    text-align: center;
 }
 
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
-
     backface-visibility: hidden;
+    margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -123,4 +125,35 @@ body {
         opacity: 1;
         transform: translate(0);
     }
+}
+
+/* :x is a psuedo class - defines the state of the btn element - here both visited and visited link */
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    /* Padding of 15px for top and bottom. Padding of 40px for left and right */
+    padding: 15px 40px;
+    /* btn element is already an inline element but need it to give it some space from other elements */
+    display: inline-block;
+    margin: 0 auto;
+    border-radius: 100px;
+    transition: all .2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    /* box-shadow: x y blur colour */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+/* Clicking a button sets it in the active state */
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
 }
