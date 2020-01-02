@@ -39,34 +39,34 @@ class Runner {
 
   // Run all test files
   async runTests() {
-    global.render = render;
-
-    // NOTE: BeforeEaches array is used to pass the beforeEach functions to 'it' function for execution before 'it' tests are run.
-    const beforeEaches = [];
-    global.beforeEach = fn => {
-      beforeEaches.push(fn);
-    };
-
-    // NOTE: global variable is available to all files in the node environment. When a function is not defined, node
-    // will look at the properties attached to the global variable next before throwing an error.
-    global.it = async (desc, fn) => {
-      beforeEaches.forEach(func => func());
-      // NOTE: Using try catch statement to prevent the test suite from stopping if a test fails
-      try {
-        await fn();
-        console.log(chalk.green(`\tOK - ${desc}`));
-      } catch (err) {
-        // NOTE 1: .replace method accepts a regular express to find all matched patterns and replace them with second arg string
-        // NOTE 2:  /\n/g regular expression means globally (within the whole err.message) find every new line character
-        const message = err.message.replace(/\n/g, "\n\t\t");
-        console.log(chalk.red(`\tX - ${desc}`));
-        console.log(chalk.red("\t", message));
-      }
-    };
-
+    
     for (let file of this.testFiles) {
       console.log(chalk.grey(`---- ${file.shortName}`));
-
+      global.render = render;
+      
+      // NOTE: BeforeEaches array is used to pass the beforeEach functions to 'it' function for execution before 'it' tests are run.
+      const beforeEaches = [];
+      global.beforeEach = fn => {
+        beforeEaches.push(fn);
+      };
+      
+      // NOTE: global variable is available to all files in the node environment. When a function is not defined, node
+      // will look at the properties attached to the global variable next before throwing an error.
+      global.it = async (desc, fn) => {
+        beforeEaches.forEach(func => func());
+        // NOTE: Using try catch statement to prevent the test suite from stopping if a test fails
+        try {
+          await fn();
+          console.log(chalk.green(`\tOK - ${desc}`));
+        } catch (err) {
+          // NOTE 1: .replace method accepts a regular express to find all matched patterns and replace them with second arg string
+          // NOTE 2:  /\n/g regular expression means globally (within the whole err.message) find every new line character
+          const message = err.message.replace(/\n/g, "\n\t\t");
+          console.log(chalk.red(`\tX - ${desc}`));
+          console.log(chalk.red("\t", message));
+        }
+      };
+      
       // NOTE 1: When we require a filepath, node finds the file, loads all the code in it and executes them.
       // NOTE 2: Adding a try catch statement to prevent a dirty file from stopping the test suite.
       try {
