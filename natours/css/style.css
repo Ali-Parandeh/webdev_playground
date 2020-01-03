@@ -8,7 +8,8 @@ Dark green: #28b485
 */
 
 /* Basic reset to ensure all browsers will render the page similarly */
-* {
+/* NOTE: Need to also apply the rules below to all ::after & ::before psuedo elements */
+*, *::after, *::before {
   margin: 0;
   padding: 0;
   /* 
@@ -110,7 +111,7 @@ body {
   animation: moveInRight 1s ease-out;
 }
 
-/* Defining animation - To optimise performance only animate two properties - opacity and/or transform */
+/* Defining animation - NOTE: To optimise performance only animate two properties: opacity and/or transform */
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -155,7 +156,7 @@ body {
   }
 }
 
-/* :x is a psuedo class - defines the state of the btn element - here both visited and visited link */
+/* NOTE: :x is a psuedo class - defines the state of the btn element - here both visited and visited link */
 .btn:link,
 .btn:visited {
   text-transform: uppercase;
@@ -178,7 +179,7 @@ body {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
-/* Clicking a button sets it in the active state */
+/* NOTE: Clicking a button sets it in the active state */
 .btn:active {
   transform: translateY(-1px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
