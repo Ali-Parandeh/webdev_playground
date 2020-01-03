@@ -59,7 +59,7 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
-.logo-box {
+.header__logo-box {
   position: absolute;
   /* Reference position from which we count these pixel is the parent element which has a position set to relative */
   /* 4rem = 40px */
@@ -67,7 +67,7 @@ body {
   left: 4rem;
 }
 
-.logo {
+.header__logo {
   /* Size of image. Aspect ratio is kept so width is automatically calculated */
   height: 3.5rem;
 }
@@ -90,7 +90,7 @@ body {
   margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
   /* Creates line-break before and after the element */
   display: block;
   font-size: 6rem;
@@ -102,7 +102,7 @@ body {
   animation-timing-function: ease-out;
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -185,7 +185,7 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
@@ -211,7 +211,7 @@ body {
   transition: all 0.4s;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
@@ -221,7 +221,7 @@ body {
   opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
   /* animation: animation-name animation-duration animation-timing-function animation-delay */
   animation: moveInBottom 0.5s ease-out 0.75s;
   /* Apply the properties of moveInBottom keyframe at 0% before animation starts */
