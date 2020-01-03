@@ -11,19 +11,35 @@ Dark green: #28b485
 * {
   margin: 0;
   padding: 0;
-  /* Borders and paddings to no longer be added to total width and height that are specified for a box  */
-  box-sizing: border-box;
+  /* 
+  NOTE: Whenever possible use inheritance instead of universal selector *
+  Any child element on the page to inherit box-sizing from body 
+  */
+  box-sizing: inherit;
+}
+
+html {
+  /* 
+  NOTE: Browsers usually have a default font-size of 16px.
+  NOTE: Root document font-size is always specified for html. Now 1rem = 10px
+  NOTE: Specifying absolute pixels is bad practice as users with impaird vision cannot change this. 
+  Need to specify this in relative to browser default font sizes using percentages. 62.5% of 16px is 10px.
+  NOTE: Sizes specified in rems do not work in IE9 and older. 
+  */
+  font-size: 62.5%;
 }
 
 /* Font specifications always go into body which will be inherited by all child elements */
 body {
   font-family: "Lato", sans-serif;
-  font-size: 16px;
+  /* font-size: 16px; */
   /* 1.7 times bigger */
   line-height: 1.7;
   color: #777;
-  /* Adds 30px whitespace around the whole page */
-  padding: 30px;
+  /* Adds 3rem = 30px whitespace around the whole page */
+  padding: 3rem;
+  /* Borders and paddings to no longer be added to total width and height that are specified for a box  */
+  box-sizing: border-box;
 }
 
 .header {
@@ -45,13 +61,14 @@ body {
 .logo-box {
   position: absolute;
   /* Reference position from which we count these pixel is the parent element which has a position set to relative */
-  top: 40px;
-  left: 40px;
+  /* 4rem = 40px */
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
   /* Size of image. Aspect ratio is kept so width is automatically calculated */
-  height: 35px;
+  height: 3.5rem;
 }
 
 .text-box {
@@ -69,15 +86,15 @@ body {
   color: #fff;
   text-transform: uppercase;
   backface-visibility: hidden;
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
 .heading-primary-main {
   /* Creates line-break before and after the element */
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
 
   animation-name: moveInLeft;
   animation-duration: 1s;
@@ -86,9 +103,9 @@ body {
 
 .heading-primary-sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
 
   animation: moveInRight 1s ease-out;
 }
@@ -144,26 +161,27 @@ body {
   text-transform: uppercase;
   text-decoration: none;
   /* Padding of 15px for top and bottom. Padding of 40px for left and right */
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   /* btn element is already an inline element but need it to give it some space from other elements */
   display: inline-block;
   margin: 0 auto;
-  border-radius: 100px;
+  border-radius: 10rem;
   transition: all 0.2s;
   /* Position all children in relative to this parent if they have absolute positioning */
   position: relative;
+  font-size: 1.6rem;
 }
 
 .btn:hover {
   transform: translateY(-3px);
   /* box-shadow: x y blur colour */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 /* Clicking a button sets it in the active state */
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
@@ -180,7 +198,7 @@ body {
   /* The psuedo element is btn element's child. Resizing to cover the full parent. */
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   /* Move the psuedo element behind the current btn element and position it
   so that it is aligned perfectly behind the btn element */
   position: absolute;
