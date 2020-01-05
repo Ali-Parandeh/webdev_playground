@@ -1,9 +1,11 @@
-$color-primary: #55c57a;
-$color-primary-light: #7ed56f;
-$color-primary-dark: #28b485;
-$color-grey-dark: #777;
-$color-white: #fff;
-$color-black: #000;
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+@import "base/base";
+@import "base/animations";
+@import "base/typography";
+@import "base/utilities";
+@import "pages/home";
 
 /* Basic reset to ensure all browsers will render the page similarly */
 /* NOTE: Need to also apply the rules below to all ::after & ::before psuedo elements */
