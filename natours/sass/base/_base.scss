@@ -1,0 +1,27 @@
+/* Basic reset to ensure all browsers will render the page similarly */
+/* NOTE: Need to also apply the rules below to all ::after & ::before psuedo elements */
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    /* 
+    NOTE: Whenever possible use inheritance instead of universal selector *
+    Any child element on the page to inherit box-sizing from body 
+    */
+    box-sizing: inherit;
+  }
+  
+  html {
+    /* 
+    NOTE: Browsers usually have a default font-size of 16px.
+    NOTE: Root document font-size is always specified for html. Now 1rem = 10px
+    NOTE: Specifying absolute pixels is bad practice as users with impaird vision cannot change this. 
+    Need to specify this in relative to browser default font sizes using percentages. 62.5% of 16px is 10px.
+    NOTE: Sizes specified in rems do not work in IE9 and older. 
+    */
+    font-size: 62.5%;
+  }
+  
+  body {
+    /* Borders and paddings to no longer be added to total width and height that are specified for a box  */
+    box-sizing: border-box;
+  }

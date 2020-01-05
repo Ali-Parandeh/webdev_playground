@@ -1,0 +1,76 @@
+.btn {
+  
+    /* NOTE: :x is a psuedo class - defines the state of the btn element - here both visited and visited link */
+    &:link,
+    &:visited {
+      text-transform: uppercase;
+      text-decoration: none;
+      /* Padding of 15px for top and bottom. Padding of 40px for left and right */
+      padding: 1.5rem 4rem;
+      /* btn element is already an inline element but need it to give it some space from other elements */
+      display: inline-block;
+      margin: 0 auto;
+      border-radius: 10rem;
+      transition: all 0.2s;
+      /* Position all children in relative to this parent if they have absolute positioning */
+      position: relative;
+      font-size: 1.6rem;
+    }
+    
+    &:hover {
+      transform: translateY(-3px);
+      /* box-shadow: x y blur colour */
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+      /* Change styling properties of the psuedo element when btn element is hovered */
+      &::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+      }
+    }
+  
+    /* NOTE: Clicking a button sets it in the active state */
+    &:active {
+      transform: translateY(-1px);
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    }
+    
+    &--white {
+      background-color: $color-white;
+      color: $color-grey-dark;
+
+      &::after {
+        background-color: $color-white;
+      }
+    }
+    
+    /* Psuedo element added after the button which is animated */
+    &::after {
+      /* Need to specify content, otherwise psuedo element will not appear on page */
+      content: "";
+      /* btn is an inline-block as is its psuedo element */
+      display: inline-block;
+      /* The psuedo element is btn element's child. Resizing to cover the full parent. */
+      height: 100%;
+      width: 100%;
+      border-radius: 10rem;
+      /* Move the psuedo element behind the current btn element and position it
+      so that it is aligned perfectly behind the btn element */
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    
+      /* Animate psuedo elements by applying and removing (transitioning) their properties within 0.4 seconds */
+      transition: all 0.4s;
+    }
+    
+    
+    
+    &--animated {
+      /* animation: animation-name animation-duration animation-timing-function animation-delay */
+      animation: moveInBottom 0.5s ease-out 0.75s;
+      /* Apply the properties of moveInBottom keyframe at 0% before animation starts */
+      animation-fill-mode: backwards;
+    }
+  }
