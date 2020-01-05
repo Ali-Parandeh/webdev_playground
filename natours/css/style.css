@@ -113,9 +113,10 @@ body {
     opacity: 1;
     transform: translate(0); } }
 
+.btn {
   /* NOTE: :x is a psuedo class - defines the state of the btn element - here both visited and visited link */
   /* NOTE: Clicking a button sets it in the active state */
-  /* Psuedo element added after the button which is animated */ 
+  /* Psuedo element added after the button which is animated */ }
   .btn:link, .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
