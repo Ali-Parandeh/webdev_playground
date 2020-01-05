@@ -1,0 +1,9 @@
+@mixin clearfix {
+    &::after {
+        // NOTE: Without the content rule, a psuedoelement will not appear on the page.
+        content: "";
+        display: table;
+        // NOTE: Clear both float left and right.
+        clear: both;
+    }
+}
