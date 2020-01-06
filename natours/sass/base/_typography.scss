@@ -36,3 +36,42 @@ body {
       animation: moveInRight 1s ease-out;
     }
   }
+
+  .heading-secondary {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    // Resize the block to match width of the content not the whole page
+    display: inline-block;
+    // Apply gradient to the h2 header text
+    background-image:  linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    // Clip the background linear gradient to pixels that are occupied by text.
+    // NOTE: Need to set background-clip property as well for cross-browser compatability
+    -webkit-background-clip: text;
+    background-clip: text;
+    // Make the text transparent to make the clipped linear gradient background visible throught it
+    color: transparent;
+    letter-spacing: 2px;
+    // Enable the transition for all properties between states smoothly
+    transition: all 0.2s;
+
+    &:hover {
+      transform: skewY(2deg) skewX(15deg) scale(1.1);
+      text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+    }
+  }
+
+  .heading-tertiary {
+    font-size: $default-font-size;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .paragraph {
+    font-size: $default-font-size;
+    
+    // Select everything not the last child
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+  }

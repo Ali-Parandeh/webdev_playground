@@ -1,0 +1,49 @@
+.composition {
+    // NOTE: Want the images to be positioned absolutely in relative to this parent element.
+    position: relative;
+
+    &__photo {
+        // NOTE: Define width size of images in percentages as they scale with the screen size
+        width: 55%;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+        border-radius: 2px;
+        // NOTE: As soon as position is set to absolute, 
+        // the positioning is set to a reference that is the first parent has its position set to something.
+        position: absolute;
+        z-index: 10;
+        transition: all 0.2s;
+        // Give margin to the image border
+        outline-offset: 2rem;
+        
+
+        &--p1 {
+            left: 0;
+            top: -2rem;
+        }
+
+        &--p2 {
+            right: 0;
+            top: 2rem;
+        }
+
+        &--p3 {
+            left: 20%;
+            top: 10rem;
+        }
+
+        &:hover {
+            // Add a border around images
+            outline: 1.5rem solid $color-primary;
+            transform: scale(1.05) translateY(-0.5rem);
+            box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
+            // When hovered, bring on top
+            z-index: 20;
+            transform: scale(1.2);
+        }
+    }
+
+    // compoisition:hover composition__photo:not(:hover)
+    &:hover &__photo:not(:hover) {
+        transform: scale(0.95);
+    }
+}

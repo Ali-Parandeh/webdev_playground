@@ -14,7 +14,7 @@
       transition: all 0.2s;
       /* Position all children in relative to this parent if they have absolute positioning */
       position: relative;
-      font-size: 1.6rem;
+      font-size: $default-font-size;
     }
     
     &:hover {
@@ -32,6 +32,7 @@
     /* NOTE: Clicking a button sets it in the active state */
     &:active {
       transform: translateY(-1px);
+      // offset-x | offset-y | blur-radius | color 
       box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
     }
     
@@ -73,4 +74,30 @@
       /* Apply the properties of moveInBottom keyframe at 0% before animation starts */
       animation-fill-mode: backwards;
     }
+    
+  &-text {
+    &:link, 
+    &:visited {
+      font-size: $default-font-size;
+      color: $color-primary;
+      display: inline-block;
+      text-decoration: none;
+      border-bottom: 1px solid $color-primary;
+      padding: 3px;
+      transition: all 0.2s;
+    }
+  
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+      // offset-x | offset-y | blur-radius | color 
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+      transform: translateY(-2px);
+    }
+  
+    &:active {
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+      transform: translateY(0);
+    }
   }
+}

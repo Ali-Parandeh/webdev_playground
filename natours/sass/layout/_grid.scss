@@ -1,7 +1,6 @@
 .row {
     // NOTE: If the viewport is smaller than this, then fill all the available space, otherwise stick to value below.
     max-width: $grid-width;
-    background-color: #eee;
     margin: 0 auto;
     
     // NOTE: Without the not() it simply selects the last child. 
@@ -18,7 +17,6 @@
     // NOTE: class*= "col-" means select all elements with class attributes contain with "col-"
     // NOTE: class$= "col-" means select all elements with class attributes end with "col-"
     [class^= "col-"] {
-        background-color: orangered;
         // NOTE: Floating elements, collapses the height. Need to use the clearfix solution to bring it back.
         float: left;
     
