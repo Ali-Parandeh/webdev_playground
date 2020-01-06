@@ -42,7 +42,8 @@
         }
     }
 
-    // compoisition:hover composition__photo:not(:hover)
+    // Select the images in the composition element that are not hovered then scale them down by 5%
+    // composition:hover composition__photo:not(:hover)
     &:hover &__photo:not(:hover) {
         transform: scale(0.95);
     }
