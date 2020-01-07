@@ -134,6 +134,11 @@ body {
   .section-features > * {
     transform: skewY(7deg); }
 
+.section-tours {
+  background-color: #f7f7f7;
+  padding: 25rem 0 50rem 0;
+  margin-top: -11.5rem; }
+
 .btn {
   /* NOTE: :x is a psuedo class - defines the state of the btn element - here both visited and visited link */
   /* NOTE: Clicking a button sets it in the active state */
@@ -252,6 +257,42 @@ body {
     color: transparent; }
   .feature-box:hover {
     transform: translateY(-1.5rem) scale(1.03); }
+
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  -webkit-perspective: 150rem;
+  position: relative;
+  height: 50rem; }
+  .card__side {
+    color: #fff;
+    font-size: 2rem;
+    height: 50rem;
+    -webkit-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
+    .card__side--front {
+      background-color: #fff; }
+      .card__side--front-1 {
+        background-image: linear-gradient(to right bottom, #2998ff, #5643fa); }
+    .card__side--back {
+      transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg); }
+      .card__side--back-1 {
+        background-image: linear-gradient(to right bottom, #ffb900, #ff7730); }
+  .card:hover .card__side--front {
+    transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg); }
+  .card:hover .card__side--back {
+    transform: rotateY(0);
+    -webkit-transform: rotateY(0); }
 
 .header {
   /* Set size of the element to 95% of the viewport height */
