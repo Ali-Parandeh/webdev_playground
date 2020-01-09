@@ -1,0 +1,77 @@
+.story {
+    width: 75%;
+    margin:  0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+    background-color: rgba($color-white, 0.6);
+    border-radius: 3px;
+    padding: 6rem;
+    // Need extra padding as we're moving circle defined below to the left
+    padding-left: 9rem;
+    font-size: $default-font-size;
+    // NOTE: Two transform properties cannot be applied to the same element at the same time
+    transform: skewX(-12deg);
+    
+    
+    
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+        float: left;
+        // NOTE: Need to consider compatability with Safari
+        // NOTE: shape-outside defines how content floats around an element. 
+        // NOTE: shape-outside requires shape to be floated with width and height to be specified.
+        // NOTE: circle(radius at X, Y) - 50% of values mean draw a half size circle at the center coordinates of parent
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        // Cut a circle out of the square
+        clip-path: circle(50% at 50% 50%);
+        // Move floated elements with transform only - Don't mess around with margins and padding
+        transform: translateX(-3rem) skewX(12deg);
+        position: relative;
+    }
+
+    &__img {
+        // Responsive design with images require a width or height specified to fill the element it is residing in
+        // NOTE: Image is wider than it is tall. To fill the entire circle, it needs to be specified as height 100%
+        height: 100%;
+        transform: translateX(-4rem) scale(1.4);
+        // NOTE: Often required when working with animations to eliminate glitches and erratic transforms
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        transition: all 0.5s;
+    }
+
+    &__text {
+        transform: skewX(12deg);
+
+    }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        color: $color-white;
+        font-size: 1.7rem;
+        text-transform: uppercase;
+        text-align: center;
+        opacity: 0;
+        transition: all 0.5s;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    // SECTION: HOVER STATE
+
+    &:hover &__caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    &:hover &__img {
+        transform: translateX(-4rem) scale(1);
+        filter: blur(3px) brightness(80%);
+    }
+
+
+}
