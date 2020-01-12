@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    <!-- SECTION: HEADING -->
     <header class="header">
         <div class="header__logo-box">
             <img src="img/logo-white.png" alt="Logo" class="header__logo" />
@@ -27,8 +28,12 @@
             <a href="#" class="btn btn--white btn--animated">Discover our tours</a>
         </div>
     </header>
+    <!-- !SECTION -->
 
     <main>
+
+        <!-- SECTION: ABOUT-->
+
         <section class="section-about">
             <div class="u-center-text u-margin-bottom-big">
                 <h2 class="heading-secondary">
@@ -48,7 +53,7 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati minima natus dicta voluptatibus aliquam eveniet perferendis vel recusandae quae. 
                     </p>
 
-                    <!-- &rarr; is an HTML entity that is rendered as a right arrow. -->
+                    <!-- NOTE: &rarr; is an HTML entity that is rendered as a right arrow. -->
                     <a href="#" class="btn-text">Learn more &rarr;</a>
                 </div>
                 <div class="col-1-of-2">
@@ -60,7 +65,9 @@
                 </div>
             </div>
         </section>
+        <!-- !SECTION -->
 
+        <!-- SECTION: FEATURES -->
         <section class="section-features">
             
             <div class="row">
@@ -105,7 +112,9 @@
                 </div>
             </div>
         </section>
+        <!-- !SECTION -->
 
+        <!-- SECTION: TOURS -->
         <section class="section-tours">
             <div class="u-center-text u-margin-bottom-big">
                 <h2 class="heading-secondary">
@@ -118,7 +127,7 @@
                     <div class="card">
                         <div class="card__side card__side--front card__side--front-1">
                             <div class="card__picture card__picture--1">
-                                <!-- &nbsp: stands for empty picture -->
+                                <!-- NOTE: &nbsp; stands for empty picture -->
                                 &nbsp;
                             </div>
                             <h4 class="card__heading">
@@ -223,13 +232,15 @@
             </div>
 
         </section>
-        
+        <!-- !SECTION -->
+
+        <!-- SECTION: STORIES -->
         <section class="section-stories">
             <div class="bg-video">
                 <video class="bg-video__content" autoplay muted loop>
                     <!-- Instead of using src="" attribute for <video> let's use <source> -->
-                    <!-- Videos are soruced from coverr.co -->
-                    <!-- Both formats are needed to ensure browser compatability -->
+                    <!-- Videos are sourced from coverr.co -->
+                    <!-- NOTE: Both formats are needed to ensure browser compatability -->
                     <source src="img/video.mp4" type="video/mp4">
                     <source src="img/video.webm" type="video/webm">
                     Your browser is not supported
@@ -284,6 +295,38 @@
             </div>
 
         </section>
+        <!-- !SECTION -->
+
+        <!-- SECTION: BOOKING FORM -->
+        <section class="section-book">
+            <div class="row">
+                <div class="book">
+                    <div class="book__form">
+                        <!-- NOTE: action attribute is the route url to send form data to -->
+                        <form action="#" class="form">
+                            <div class="u-margin-bottom-medium">
+                                <h2 class="heading-secondary">
+                                    Start booking now
+                                </h2>
+                            </div>
+
+                            <div class="form__group">
+                                <!-- NOTE: To connect an input to label use id attribute -->
+                                <input type="text" class="form__input" placeholder="Full Name" id="name" required/>
+                                <label for="name" class="form__label">Full Name</label>
+                            </div>
+
+                            <div class="form__group">
+                                <input type="email" class="form__input" placeholder="Email Address" id="email" required/>
+                                <label for="email" class="form__label">Email Address</label>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- !SECTION -->
     </main>
 
     <!-- Sample grid html structure for developing and visualising a simple grid layout
