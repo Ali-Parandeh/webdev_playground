@@ -1,24 +1,33 @@
+// SECTION: ABSTRACT IMPORTS
 @import "abstracts/functions";
 @import "abstracts/mixins";
 @import "abstracts/variables";
+// !SECTION
 
+// SECTION: BASE IMPORTS
 @import "base/base";
 @import "base/animations";
 @import "base/typography";
 @import "base/utilities";
+// !SECTION
 
+// SECTION: PAGES IMPORTS
 @import "pages/home";
+// !SECTION
 
+// SECTION: COMPONENTS IMPORTS
 @import "components/button";
 @import "components/composition";
 @import "components/feature-box";
 @import "components/cards";
 @import "components/story";
 @import "components/video";
+// !SECTION
 
+// SECTION: LAYOUT IMPORTS
 @import "layout/header";
-
 @import "layout/grid";
+// !SECTION
   
   
 
