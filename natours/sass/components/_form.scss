@@ -1,0 +1,58 @@
+.form {
+
+    &__group:not(:last-child){
+        margin-bottom: 2rem;
+    }
+
+    &__input {
+        font-size: 1.5rem;
+        // NOTE: inherit font family & color from document. Better implementation than duplicating specs.
+        font-family: inherit;
+        color: inherit;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgab($color-white, 0.5);
+        border: none;
+        // NOTE: Need a transparent border in initial state to avoid change of layout in input focus mode
+        border-bottom: 3px solid transparent;
+        width: 90%;
+        display: block;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+            border-bottom: 3px solid $color-primary;
+            
+            &:invalid {
+                border-bottom: 3px solid $color-secondary-dark;
+            }
+            
+        }
+        
+        &::-webkit-input-placeholder {
+            color: $color-grey-dark-2;
+        }
+    }
+
+    &__label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: 0.7rem;
+        display: block;
+        transition: all 0.3s;
+    }
+
+    // NOTE: :placeholder-shown psuedoclass is a state where placeholder is shown on the input field
+    // NOTE: + is an adjacent sibling selector after siblings after the element. label here is not a child of input.
+    // NOTE: ~ is the general sibling selector for sblings after the element. Used when siblings are not adjacent.
+    &__input:placeholder-shown + &__label {
+        // NOTE: To hide an element and transiiton it in, need to use both opacity and visibility.
+        // If you just use opacity, then element is still on the page but transparent.
+        // If you just use visbility, then you cannot animate the element.
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+   
+}
