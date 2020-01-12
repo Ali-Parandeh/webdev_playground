@@ -1,6 +1,7 @@
 .btn {
   
     /* NOTE: :x is a psuedo class - defines the state of the btn element - here both visited and visited link */
+    &,
     &:link,
     &:visited {
       text-transform: uppercase;
@@ -15,9 +16,11 @@
       /* Position all children in relative to this parent if they have absolute positioning */
       position: relative;
       font-size: $default-font-size;
+      border: none;
+      cursor: pointer;
     }
     
-    &:hover {
+    &:hover {     
       transform: translateY(-3px);
       /* box-shadow: x y blur colour */
       box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
@@ -29,8 +32,10 @@
       }
     }
   
-    /* NOTE: Clicking a button sets it in the active state */
-    &:active {
+    /* NOTE: Clicking a button sets it in the active & focus states */
+    &:active,
+    &:focus {
+      outline: none;
       transform: translateY(-1px);
       // offset-x | offset-y | blur-radius | color 
       box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
